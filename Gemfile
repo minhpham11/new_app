@@ -5,6 +5,8 @@ gem "bootstrap-sass", "3.4.1"
 
 ruby "2.7.5"
 
+gem "bcrypt", "3.1.7"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 
