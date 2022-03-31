@@ -14,6 +14,10 @@ class MicropostsController < ApplicationController
         end
     end
 
+    def show
+        @micropost = Micropost.find(params[:id])
+    end
+
     def destroy
         # @micropost = current_user.microposts.find_by(id: params[:id])
         # return redirect_to root_url if @micropost.nil?
