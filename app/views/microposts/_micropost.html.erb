@@ -11,4 +11,8 @@
       <%= button_to "delete", micropost, method: :delete, data: { confirm: "You sure?" } %>
     <% end %>
   </span>
+  <div>
+    <%= button_tag "Comment", class: "btn-primary add-form-comment-btn", data: {post_id: micropost.id} %>
+    <%= link_to "show", micropost %>
+  </div>
 </li>
