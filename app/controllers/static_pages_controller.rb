@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  before_action :load_micropost, only: [:show, :edit, :update, :destroy]
+
   def home
     if logged_in?
       @micropost = current_user.microposts.build
