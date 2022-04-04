@@ -1,20 +1,10 @@
-import { Application } from "@hotwired/stimulus"
-
-const application = Application.start()
-
-// Configure Stimulus development experience
-application.debug = false
-window.Stimulus   = application
-
-export { application }
-
 $(document).ready(function () {
     var flip = 0;
 
     $(document).on('click', '.add-form-comment-btn', function () {
         var html = $('.comment-form').html();
         $('#micropost-' + $(this).data('micropost-id')).append(html);
-        $('.input-comment').toggle(flip++ % 2 == 0);
+        $('.input-comment').toggle(flip++ % 2 === 0);
     });
 
     $(document).on('click', '.comment-btn', function () {
@@ -43,5 +33,3 @@ $(document).ready(function () {
         $('.comments-' + micropostId).append(txt1);
     }
 });
-
-

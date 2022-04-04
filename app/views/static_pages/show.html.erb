@@ -1,0 +1,21 @@
+<div id="micropost-<%= @micropost.id %>">
+  <span class="user user-show"><%= link_to @micropost.user.name, @micropost.user %></span>
+  <%= link_to gravatar_for(@micropost.user, size: 50), @micropost.user %>
+  <span class="content">
+    <%= image_tag @micropost.display_image if @micropost.image.attached? %>
+  </span>
+  <div class="card my-1">
+    <div class="card-body">
+      <p class="font-weight-bold">content: <%= @micropost.content%></p>
+      <p class="font-weight-bold">Comments</p>
+      <%= form_for @comment  do |f| %>
+        <div class="form-group">
+          <%= f.hidden_field :micropost_id, value: @micropost.id %>
+          <%= f.text_area :content, placeholder: "New Comment",required: true, class: 'form-control' %>
+        </div>
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+  <%= render @comments %>
+</div>
