@@ -13,12 +13,12 @@
     </aside>
     <div class="col-md-8">
       <h3>Micropost Feed</h3>
-      <div class="form-group hidden comment-form">
-        <div class="comment-form1">
-          <%= text_field_tag :comment_content, nil, class: "form-control comment-content", placeholder: "New comment" %>
-          <%= button_tag :comment_submit, class: "btn btn-primary comment-submit"%>
-        </div>
-      </div>
+      <%# <div class="form-group display-hidden comment-form"> %>
+      <%# <div class="comment-form"> %>
+      <%#= text_field_tag :comment_content, nil, class: "form-control comment-content", placeholder: "New comment" %>
+      <%#= button_tag :comment_submit, class: "btn btn-primary comment-submit"%>
+      <%# </div> %>
+      <%# </div> %>
       <%= render 'shared/feed' %>
     </div>
   </div>

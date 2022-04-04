@@ -1,0 +1,25 @@
+<div class="card ml-5">
+  <div class="card-body">
+    <div class="row reply">
+      <div class="col-md-1 col-img">
+        <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid img-cmt"/>
+      </div>
+      <div class="col-md-11 col-content">
+        <div class="clearfix"></div>
+        <p>
+          <a class="float-left" href="#"><strong><%= reply.name %></strong></a>
+        </p>
+        <p>
+          <%= reply.content %>
+        </p>
+        <p class = "func-button">
+          <%= link_to 'edit', edit_comment_path(comment.id) ,class: "btn btn-primary" %>
+          <%= link_to "destroy",comment_path(comment.id), method: :delete, data: { confirm: 'Delete? Are you sure?' }, class: "btn btn-danger" %>
+        </p>
+        <p>
+          <%= reply.created_at %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

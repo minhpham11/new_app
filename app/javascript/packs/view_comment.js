@@ -1,21 +1,35 @@
-$( document ).ready(function() {
-    $('.add-form-comment-btn').click(function () {
+$(document).ready(function () {
+    var flip = 0;
+
+    $(document).on('click', '.add-form-comment-btn', function () {
         var html = $('.comment-form').html();
-        $('#micropost-' + $(this).data('post-id')).append(html);
+        $('#micropost-' + $(this).data('micropost-id')).append(html);
+        $('.input-comment').toggle(flip++ % 2 === 0);
     });
-    
-    $('.comment-submit').click(function () {
-        var form = $(this).closest('.comment-form');
-        var formData = form.serialize();
-        var url = form.attr('action');
+
+    $(document).on('click', '.comment-btn', function () {
+        var micropostId = $(this).closest('.micropost').data('id');
+
+        var content = $(this).siblings('.comment-content').val();
+
         $.ajax({
+            url: '/comments',
             type: 'POST',
-            url: url,
-            data: formData,
+            data: {
+                comment: {
+                    micropost_id: micropostId,
+                    comment_content: content
+                }
+            },
+            dataType: 'json',
             success: function (data) {
-                $('.comment-form').remove();
-                $('.comment-list').append(data);
+                appendText(data.comment.comment_content, micropostId);
             }
-        });
+        })
     });
+
+    function appendText(text, micropostId) {
+        var txt1 = "<p>" + text + "</p>";
+        $('.comments-' + micropostId).append(txt1);
+    }
 });
