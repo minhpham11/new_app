@@ -14,7 +14,7 @@ $(document).ready(function () {
     $(document).on('click', '.add-form-comment-btn', function () {
         var html = $('.comment-form').html();
         $('#micropost-' + $(this).data('micropost-id')).append(html);
-        $('.input-comment').toggle(flip++ % 2 == 0);
+        $('.input-comment').toggle(flip++ % 2 === 0);
     });
 
     $(document).on('click', '.comment-btn', function () {

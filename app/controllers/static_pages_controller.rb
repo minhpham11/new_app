@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
   end
 
   def show
-    @comments = Comment.includes(:user).where(micropost_id: @micropost.id).newest.paginate(page: params[:page])
+    #@comments = Comment.includes(:user).where(micropost_id: @micropost.id).newest.paginate(page: params[:page])
   end
 
   def help
@@ -23,11 +23,11 @@ class StaticPagesController < ApplicationController
 
   private
 
-  def load_micropost
-    @micropost = Micropost.find_by(id: params[:id])
-    return if @micropost
-    flash[:danger] = "Micropost not found!"
-    redirect_to root_path
-  end
+  # def load_micropost
+  #   @micropost = Micropost.find_by(id: params[:id])
+  #   return if @micropost
+  #   flash[:danger] = "Micropost not found!"
+  #   redirect_to root_path
+  # end
   
 end

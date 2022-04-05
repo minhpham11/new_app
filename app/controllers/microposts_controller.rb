@@ -14,6 +14,10 @@ class MicropostsController < ApplicationController
         end
     end
 
+    def new
+        @micropost = Micropost.find_by(id: params[:id])
+    end
+
     def show
         @micropost = Micropost.find(params[:id])
     end

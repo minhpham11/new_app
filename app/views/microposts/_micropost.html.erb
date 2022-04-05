@@ -10,12 +10,9 @@
     <% if current_user?(micropost.user) %>
       <%= button_to "delete", micropost, method: :delete, data: { confirm: "You sure?" } %>
     <% end %>
-    <%#= link_to "comment", show_path(id: micropost.id) %>
   </div>
-  <%# new edit %>
   <%= button_tag "Comment", class: "btn-comment add-form-comment-btn", data: {micropost_id: micropost.id} %>
   <div class="comments-<%= micropost.id %>"></div>
-  <%#= link_to "Comment", new_comment_path(id: micropost.id), class: "btn btn-primary"%>
   <div class="form-group display-hidden comment-form">
     <div class="input-comment">
       <%= text_field_tag :comment_content, nil, class: "form-control comment-content", 
@@ -24,8 +21,6 @@
     </div>
   </div>
   <div>
-    <%#= button_tag "Binh Luan", class: "btn-primary add-form-comment-btn", data: {post_id: micropost.id} %>
-    <%#= link_to "show", micropost %>
   </div>
 </li>
 <%# <%= javascript_pack_tag "view_comment" %>
