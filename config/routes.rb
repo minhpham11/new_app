@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'comments/new'
   root              'static_pages#home'
-
+  
   get '/help',      to: 'static_pages#help'
   get '/about',     to: 'static_pages#about'
   get '/contact',   to: 'static_pages#contact'
@@ -21,5 +20,5 @@ Rails.application.routes.draw do
   resources :password_resets,     only: %i(new create edit update)
   resources :microposts,          only: [:create, :destroy, :show]
   resources :relationships,       only: [:create, :destroy]
-  resources :comments,            only: [:create, :destroy, :show]
+  resources :comments,            only: [:create, :destroy, :show, :new]
 end
